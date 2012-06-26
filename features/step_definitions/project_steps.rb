@@ -20,6 +20,13 @@ When /^I create a project called "(.+)"$/ do |project_name|
   click_button "Create Project"
 end
 
+When /^I edit the project "(.+)" to "(.*)"$/ do |old_name, new_name|
+  click_link old_name
+  click_link "Edit Project"
+  fill_in "Name", :with => new_name
+  click_button "Update Project"
+end
+
 When /^I create a project with no name$/ do
   click_link "New Project"
   click_button "Create Project"
