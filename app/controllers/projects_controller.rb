@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 
   def index
+    @projects = Project.all
   end
 
   def show
@@ -12,9 +13,14 @@ class ProjectsController < ApplicationController
   end
   
   def create
-    @project = Project.create!(params[:project])
-    flash[:notice] = "Project has been created."
-    redirect_to @project
+    @project = Project.new(params[:project])
+    if @project.save
+      flash[:notice] = "Project has been created."
+      redirect_to @project
+    else
+      flash[:alert] = "Project has not been created."
+      render :action => "new"
+    end
   end
 
 end

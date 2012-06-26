@@ -2,11 +2,7 @@
 <html>
 <head>
   <title>
-    <% if content_for?(:title) %>
-      <%= yield(:title) %>
-    <% else %>
-      Ticketee
-    <% end %>
+    <%= content_for?(:title) ? yield(:title) : main_title %>
   </title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>

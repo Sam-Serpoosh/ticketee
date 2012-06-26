@@ -7,5 +7,9 @@ module ApplicationHelper
       end
     end
   end
+  
+  def main_title
+    "Ticketee"
+  end
 
 end

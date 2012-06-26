@@ -6,6 +6,7 @@ gem 'sqlite3'
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
+  gem 'dynamic_form'
   gem 'uglifier'
 end
 
@@ -18,6 +19,7 @@ end
 group :test do
   gem 'rspec', '2.10.0' 
   gem 'database_cleaner', '0.8.0'
+  gem 'factory_girl_rails', '1.0'
 end
 
 gem 'jquery-rails'
