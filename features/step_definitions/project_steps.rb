@@ -32,6 +32,11 @@ When /^I create a project with no name$/ do
   click_button "Create Project"
 end
 
+When /^I delete project "(.+)"$/ do |project_name|
+  click_link project_name
+  click_link "Delete Project"
+end
+
 
 #Expectations
 
@@ -43,6 +48,10 @@ Then /^I should be on the project page for "(.+)"$/ do |project_name|
   visit project_path(Project.find_by_name!(project_name))
 end
 
-Then /^I should see "(.+)"$/ do |page_title|
-  page.should have_content(page_title)
+Then /^I should see "(.+)"$/ do |content|
+  page.should have_content(content)
+end
+
+Then /^I should not see "(.+)" anymore$/ do |project_name|
+  response.should_not have_selector("a", :content => project_name)
 end

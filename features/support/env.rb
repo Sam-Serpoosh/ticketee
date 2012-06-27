@@ -9,7 +9,7 @@ require 'webrat'
 require 'webrat/core/matchers'
 
 Webrat.configure do |config|
-  config.mode = :rack
+  config.mode = :rails
   config.open_error_files = false
 end
 
