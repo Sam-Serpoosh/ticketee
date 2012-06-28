@@ -15,5 +15,5 @@ Then /^I should see "(.+)"$/ do |content|
 end
 
 Then /^I should not see "(.+)" anymore$/ do |project_name|
-  response.should_not have_selector("a", :content => project_name)
+  page.should_not have_link(project_name)
 end
