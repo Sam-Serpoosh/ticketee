@@ -14,4 +14,13 @@ describe Project do
     end
   end
 
+  describe "destroy associated tickets" do
+    it "deletes associated tickets after deleting the project" do
+      project = Factory(:project)
+      ticket = Factory(:ticket, :project => project)
+      project.destroy
+      Ticket.count.should == 0
+    end
+  end
+
 end
