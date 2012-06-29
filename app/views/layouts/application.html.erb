@@ -4,6 +4,9 @@
   <title>
     <%= main_title %>
   </title>
+  <div id="nav">
+    <%= link_to "Sign up", new_user_registration_path %>
+  </div>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -16,6 +19,7 @@
   <% end %>
   <%= link_to "Ticketee", root_path %>
   <%= yield %>
+  <br /><br /><br />
   <%= debug(params) if Rails.env.development? %>
 
 </body>
