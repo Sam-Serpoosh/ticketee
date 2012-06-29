@@ -7,6 +7,7 @@ Given /^that project has a ticket:$/ do |table|
 end
 
 #Actions
+
 When /^I want to add ticket to that project$/ do
   click_link "New Ticket"
 end
@@ -23,6 +24,12 @@ end
 
 When /^I go to "(.+)" ticket$/ do |ticket|
   click_link ticket
+end
+
+When /^I edit the ticket to "(.*)"$/ do |new_title|
+  click_link "Edit Ticket"
+  fill_in "Title", :with => new_title
+  click_button "Update Ticket"
 end
 
 #Expectations
