@@ -22,5 +22,6 @@ group :test do
   gem 'factory_girl_rails', '1.0'
 end
 
+gem 'devise', '1.4.9'
 gem 'jquery-rails'
 gem 'therubyracer'
