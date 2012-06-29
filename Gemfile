@@ -14,6 +14,7 @@ group :test, :development do
   gem 'rspec-rails', '2.10.1'
   gem 'cucumber-rails', '1.3.0'
   gem 'webrat', '0.7.2'
+  gem 'email_spec', '1.2.1'
 end
 
 group :test do
