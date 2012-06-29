@@ -32,6 +32,10 @@ When /^I edit the ticket to "(.*)"$/ do |new_title|
   click_button "Update Ticket"
 end
 
+When /^I delete the ticket$/ do
+  click_link "Delete Ticket"
+end
+
 #Expectations
 
 Then /^I should see ticket "(.+)"$/ do |ticket_title|
