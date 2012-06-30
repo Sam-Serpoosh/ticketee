@@ -1,7 +1,8 @@
 #Arrangements
 
-Given /^that project has a ticket:$/ do |table|
+Given /^"(.+)" has created a ticket for this project:$/ do |user_email, table|
   table.hashes.each do |attributes|
+    attributes = attributes.merge!(:user => User.find_by_email!(user_email))
     @project.tickets.create!(attributes)
   end
 end

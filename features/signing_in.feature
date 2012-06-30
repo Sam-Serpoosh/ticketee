@@ -16,6 +16,4 @@ Feature: Signing in
     Given there are following users:
       | email             | password|
       | user@ticketee.com | password |
-    And I am on the homepage
-    When I sign in
-    Then I should see the message "Signed in successfully."
+    And I am signed in as them 

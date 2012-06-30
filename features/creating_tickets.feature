@@ -5,13 +5,20 @@ Feature: Creating Tickets
 
   Background:
     Given there is a project called "Internet Explorer"
+    And there are following users:
+      | email             | password |
+      | user@ticketee.com | password |
     And I am on the homepage
     When I go to "Internet Explorer" page
     And I want to add ticket to that project
+    Then I should see the message "You need to sign in or sign up before continuing."
+    When I sign in
+    Then I should see "New Ticket"
 
   Scenario: Creating a ticket
     When I add the ticket "Non-standards compliance" with description "My pages are ugly!"
     Then I should see the message "Ticket has been created."
+    And I should see "Created by user@ticketee.com"
 
   Scenario: Creating a ticket with invalid attributes should be a failure
     When I add a ticket with no name and description

@@ -8,6 +8,14 @@ Given /^there are following users:$/ do |table|
   end
 end
 
+Given /^I am signed in as them$/ do
+  steps(%Q{
+    Given I am on the homepage
+    When I sign in
+    Then I should see the message "Signed in successfully."
+  })
+end
+
 #Actions
 
 When /^I sign up$/ do
