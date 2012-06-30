@@ -5,14 +5,17 @@
     <%= main_title %>
   </title>
 
-  <div id="nav">
+  <nav>
     <% if user_signed_in? %>
       Signed in as <%= current_user.email %>
     <% else %>
       <%= link_to "Sign up", new_user_registration_path %>
       <%= link_to "Sign in", new_user_session_path %>
     <% end %>
-  </div>
+    <% admins_only do %>
+      <%= link_to "Admin", admin_root_path %><br />
+    <% end %>
+  </nav>
 
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
