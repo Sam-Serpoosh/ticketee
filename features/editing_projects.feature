@@ -4,6 +4,10 @@ Feature: Editin Projects
   I want o be able to do that through an interface
 
   Background:
+    Given there are following users:
+      | email              | password | admin |
+      | admin@ticketee.com | password | true  |
+    And I am signed in as them
     Given there is a project called "TextMate 2"
     And I am on the homepage
 

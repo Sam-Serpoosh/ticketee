@@ -21,3 +21,11 @@ end
 Then /^I should not see "(.+)" anymore$/ do |project_name|
   page.should_not have_link(project_name)
 end
+
+Then /^I should see "(.+)" link$/ do |link_text|
+  page.should have_css("a", :text => link_text)
+end
+
+Then /^I should not see "(.+)" link$/ do |link_text|
+  page.should_not have_css("a", :text => link_text)
+end
