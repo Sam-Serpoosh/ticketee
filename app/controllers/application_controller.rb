@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   private
   
-    def authorize_user!
+    def authorize_admin!
       authenticate_user!
       unless current_user.admin?
         flash[:alert] = "You must be admin to do that."
