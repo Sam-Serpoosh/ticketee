@@ -19,3 +19,8 @@ Feature: Creating users
     When I create a new user with no email
     Then I should see the message "User has not been created."
     And I should see "Email can't be blank"
+
+  Scenario: Creating an admin user
+    When I create an admin user
+    Then I should see the message "User has been created."
+    And I should see "newadmin@ticketee.com (Admin)"
