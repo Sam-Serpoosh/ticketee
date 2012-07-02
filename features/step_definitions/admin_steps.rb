@@ -39,3 +39,13 @@ When /^I make a user admin$/ do
   check "Is an admin?"
   click_button "Update User"
 end
+
+When /^I want to delete a user$/ do
+  click_link "Admin"
+  click_link "Users"
+end
+
+When /^I delete "(.+)"$/ do |user_email|
+  click_link user_email
+  click_link "Delete User"
+end
