@@ -21,3 +21,21 @@ When /^I create an admin user$/ do
    check "Is an admin?"
    click_button "Create User"
 end
+
+
+When /^I want to edit the user "(.+)"$/ do |user_email|
+  click_link "Admin"
+  click_link "Users"
+  click_link user_email
+  click_link "Edit User"
+end
+
+When /^I update user with "(.*)"$/ do |new_email|
+  fill_in "Email", :with => new_email
+  click_button "Update User"
+end
+
+When /^I make a user admin$/ do
+  check "Is an admin?"
+  click_button "Update User"
+end
