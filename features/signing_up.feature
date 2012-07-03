@@ -7,3 +7,4 @@ Feature: Signin up
     Given I am on the homepage
     When I sign up
     Then I should see the message "You have signed up successfully"
+    Then I should see the message "Please confirm your account before signing in"
