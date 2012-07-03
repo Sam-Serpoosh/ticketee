@@ -3,8 +3,16 @@ Feature: Viewing projects
   As a user
   I want to be able to see a list of available projects
 
+  Background:
+    Given there are following users:
+      | email             | password |
+      | user@ticketee.com | password |
+    And I am signed in as them
+    And there is a project called "TextMate 2"
+    And there is a project called "Internet Explorer"
+    And "user@ticketee.com" can view the "TextMate 2" project
+
   Scenario: Listing all projects
-    Given there is a project called "TextMate 2"
-    And I am on the homepage
-    When I go to "TextMate 2" page
-    Then I should be on the project page for "TextMate 2"
+    Given I am on the homepage
+    Then I should see "TextMate 2"
+    And I should not see "Internet Explorer"

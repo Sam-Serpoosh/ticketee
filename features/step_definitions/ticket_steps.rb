@@ -9,7 +9,8 @@ end
 
 #Actions
 
-When /^I want to add ticket to that project$/ do
+When /^I want to add ticket to "(.+)" project$/ do |project_name|
+  click_link project_name
   click_link "New Ticket"
 end
 

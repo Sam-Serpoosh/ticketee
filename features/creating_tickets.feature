@@ -4,16 +4,14 @@ Feature: Creating Tickets
   I want to be able to select a project and do that
 
   Background:
-    Given there is a project called "Internet Explorer"
-    And there are following users:
+    Given there are following users:
       | email             | password |
       | user@ticketee.com | password |
+    And there is a project called "Internet Explorer"
+    And "user@ticketee.com" can view the "Internet Explorer" project
+    And I am signed in as them
     And I am on the homepage
-    When I go to "Internet Explorer" page
-    And I want to add ticket to that project
-    Then I should see the message "You need to sign in or sign up before continuing."
-    When I sign in
-    Then I should see "New Ticket"
+    When I want to add ticket to "Internet Explorer" project
 
   Scenario: Creating a ticket
     When I add the ticket "Non-standards compliance" with description "My pages are ugly!"

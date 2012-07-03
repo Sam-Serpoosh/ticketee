@@ -34,7 +34,7 @@ describe ProjectsController do
       sign_in(:user, user)
       get :show, :id => project.id
       response.should redirect_to(projects_path)
-      flash[:alert].should =~ /could not be found./
+      flash[:alert].should =~ /could not be foud./
     end
 
   end
