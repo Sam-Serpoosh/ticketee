@@ -9,7 +9,7 @@ Feature: Hidden Links
       | user@ticketee.com  | password | false  |
       | admin@ticketee.com | password | true   |
     And there is a project called "TextMate 2"
-    And "user@ticketee.com" can view the "TextMate 2" project
+    And "user@ticketee.com" can "view" the "TextMate 2" project
 
   Scenario: New Project link is hidden for non-signed-in users
     Given I am on the homepage

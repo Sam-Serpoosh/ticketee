@@ -8,7 +8,8 @@ Feature: Creating Tickets
       | email             | password |
       | user@ticketee.com | password |
     And there is a project called "Internet Explorer"
-    And "user@ticketee.com" can view the "Internet Explorer" project
+    And "user@ticketee.com" can "view" the "Internet Explorer" project
+    And "user@ticketee.com" can "create tickets" in the "Internet Explorer" project
     And I am signed in as them
     And I am on the homepage
     When I want to add ticket to "Internet Explorer" project
