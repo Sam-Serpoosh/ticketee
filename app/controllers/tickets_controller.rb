@@ -3,6 +3,7 @@ class TicketsController < ApplicationController
   before_filter :find_project
   before_filter :find_ticket_of_project, :only => [:show, :edit, :update, :destroy]
   before_filter :authorize_create!, :only => [:new, :create]
+  before_filter :authorize_update!, :only => [:edit, :update]
 
   def show
   end
@@ -57,10 +58,22 @@ class TicketsController < ApplicationController
     end
 
     def authorize_create!
+      set_ability
+      check_authorization("create tickets", "You can not create tickets on this project.")
+    end
+
+    def authorize_update!
+      check_authorization("edit tickets", "You can not edit tickets on this project")
+    end
+
+    def set_ability
       @current_ability ||= ::Ability.new(current_user)
-      if !current_user.admin? && cannot?("create tickets".to_sym, @project)
-        flash[:alert] = "You can not create tickets on this project."
-        redirect_to project_path(@project) 
+    end
+
+    def check_authorization(action, alert_message)
+      if !current_user.admin? && cannot?(action.to_sym, @project)
+        flash[:alert] = alert_message
+        redirect_to project_path(@project)
       end
     end
 

@@ -31,7 +31,7 @@ describe TicketsController do
     end 
 
     it "can't create a ticket" do
-      post :create, :project_id => project.id 
+      post :create, { :project_id => project.id, :ticket => {} }
       cannot_create_tickets!
     end
 
@@ -40,6 +40,34 @@ describe TicketsController do
       flash[:alert].should =~ /can not create tickets on this project./
     end
   
+  end
+
+  describe "updating tickets access control" do
+
+    before do
+      sign_in(:user, user)
+      Permission.create!(:user => user,
+                         :thing => project,
+                         :action => "view")
+    end
+
+    it "can't start editing ticket" do
+      get :edit, { :project_id => project.id, :id => ticket.id }
+      cannot_update_tickets!
+    end
+
+    it "can't update a ticket" do
+      put :update, { :project_id => project.id, 
+                     :id => ticket.id,
+                     :ticket => {} }
+      cannot_update_tickets!
+    end
+
+    def cannot_update_tickets!
+      response.should redirect_to(project_path(project))
+      flash[:alert].should =~ /can not edit tickets on this project/
+    end
+
   end
 
 end
