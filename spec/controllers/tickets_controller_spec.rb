@@ -70,4 +70,21 @@ describe TicketsController do
 
   end
 
+  describe "deleting tickets access control" do
+    
+    before do
+      sign_in(:user, user)
+      Permission.create!(:user => user,
+                        :thing => project,
+                        :action => "view")
+    end
+
+    it "can't delete tickets without permission" do
+      delete :destroy, { :project_id => project.id, :id => ticket.id }
+      flash[:alert].should =~ /can not delete tickets from this project./
+      response.should redirect_to(project_path(project))
+    end
+
+  end
+
 end

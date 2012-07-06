@@ -4,6 +4,7 @@ class TicketsController < ApplicationController
   before_filter :find_ticket_of_project, :only => [:show, :edit, :update, :destroy]
   before_filter :authorize_create!, :only => [:new, :create]
   before_filter :authorize_update!, :only => [:edit, :update]
+  before_filter :authorize_delete!, :only => [:destroy]
 
   def show
   end
@@ -64,6 +65,10 @@ class TicketsController < ApplicationController
 
     def authorize_update!
       check_authorization("edit tickets", "You can not edit tickets on this project")
+    end
+    
+    def authorize_delete!
+      check_authorization("delete tickets", "You can not delete tickets from this project.")
     end
 
     def set_ability
