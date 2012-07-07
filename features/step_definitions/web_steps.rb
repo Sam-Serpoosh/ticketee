@@ -4,6 +4,12 @@ Given /^I am on the (.+)$/ do |page_name|
   visit root_path
 end
 
+#Actions
+
+When /^I check "(.+)"$/ do |check_box|
+  check check_box
+end
+
 #Expectations
 
 Then /^I should see the message "(.+)"$/ do |message|

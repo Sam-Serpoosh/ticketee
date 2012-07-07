@@ -38,3 +38,7 @@ When /^I sign in$/ do
   fill_in "Password", :with => "password" 
   click_button "Sign in"
 end
+
+When /^I sign out$/ do
+  click_link "Sign out"
+end
