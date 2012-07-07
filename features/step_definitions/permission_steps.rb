@@ -27,5 +27,8 @@ When /^I check "(.+)" for "(.+)"$/ do |action, project_name|
   permission = action.downcase.gsub(" ", "_")
   check_box_id = "permissions_#{project.id}_#{permission}"
   steps(%Q{When I check the "#{check_box_id}"})
+end
+
+When /^I give the permission$/ do
   click_button "Update"
 end

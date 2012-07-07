@@ -14,8 +14,17 @@ Feature: Assigning permissions
 
   Scenario: Viewing a project
     When I check "View" for "TextMate 2"
+    And I give the permission
     And I sign out
-
     Given I am signed in as "user@ticketee.com"
     Then I should see "TextMate 2"
-      
+
+  Scenario: Creating tickets for a project
+    When I check "View" for "TextMate 2"
+    And I check "Create Tickets" for "TextMate 2"
+    And I give the permission
+    And I sign out
+    Given I am signed in as "user@ticketee.com"
+    When I want to add ticket to "TextMate 2" project
+    And I add the ticket "Shiny" with description "Make it so!"
+    Then I should see the message "Ticket has been created."
