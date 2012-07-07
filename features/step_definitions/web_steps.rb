@@ -6,7 +6,7 @@ end
 
 #Actions
 
-When /^I check "(.+)"$/ do |check_box|
+When /^I check the "(.+)"$/ do |check_box|
   check check_box
 end
 

@@ -25,7 +25,7 @@ end
 When /^I check "(.+)" for "(.+)"$/ do |action, project_name|
   project = Project.find_by_name!(project_name)
   permission = action.downcase.gsub(" ", "_")
-  field_id = "permissions_#{project.id}_#{permission}"
-  steps(%Q{When I check "#{field_id}"})
+  check_box_id = "permissions_#{project.id}_#{permission}"
+  steps(%Q{When I check the "#{check_box_id}"})
   click_button "Update"
 end
