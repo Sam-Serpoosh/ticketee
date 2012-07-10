@@ -15,9 +15,19 @@ When /^I want to add ticket to "(.+)" project$/ do |project_name|
 end
 
 When /^I add the ticket "(.+)" with description "(.+)"$/ do |title, description|
-  fill_in "Title", :with => title
-  fill_in "Description", :with => description
+  steps(%Q{When Ticket information "#{title}" and "#{description}" was filled})
   click_button "Create Ticket"
+end
+
+When /^I add a ticket with "(.+)" and "(.+)" and I attach "(.+)"$/ do |title, description, file_path|
+  steps(%Q{When Ticket information "#{title}" and "#{description}" was filled})
+  attach_file("File", file_path)
+  click_button "Create Ticket"
+end
+
+When /^Ticket information "(.+)" and "(.+)" was filled$/ do |title, description|
+  fill_in "Title", :with => title
+  fill_in "Description", :with => description 
 end
 
 When /^I add a ticket with no name and description$/ do
@@ -54,4 +64,8 @@ end
 
 Then /^I should see title "(.+)"$/ do |ticket_title|
   page.should have_selector("#ticket h2", :content => ticket_title)
+end
+
+Then /^I should see "(.+)" for the ticket$/ do |file_name|
+  page.should have_selector("#ticket .asset", :content => file_name)
 end

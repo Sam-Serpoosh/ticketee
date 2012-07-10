@@ -29,3 +29,8 @@ Feature: Creating Tickets
     When I add the ticket "Non-standard compliance" with description "it sucks"
     Then I should see the message "Ticket has not been created."
     And I should see "Description is too short"
+
+  Scenario: Creating a ticket with an attachment
+    When I add a ticket with "Title" and "Add documentation for blink tag" and I attach "spec/fixtures/speed.txt"
+    Then I should see the message "Ticket has been created."
+    And I should see "speed.txt" for the ticket

@@ -24,6 +24,9 @@ group :test do
 end
 
 gem 'devise', '1.4.9'
-gem 'cancan', '1.6.8'
 gem 'jquery-rails'
 gem 'therubyracer'
+
+gem 'cancan', '1.6.8'
+
+gem 'paperclip', '3.1.2'
