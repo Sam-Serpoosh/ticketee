@@ -19,9 +19,11 @@ When /^I add the ticket "(.+)" with description "(.+)"$/ do |title, description|
   click_button "Create Ticket"
 end
 
-When /^I add a ticket with "(.+)" and "(.+)" and I attach "(.+)"$/ do |title, description, file_path|
+When /^I add a ticket with "(.+)" and "(.+)" and I attach files$/ do |title, description|
   steps(%Q{When Ticket information "#{title}" and "#{description}" was filled})
-  attach_file("File", file_path)
+  attach_file("File #1", "spec/fixtures/speed.txt")
+  attach_file("File #2", "spec/fixtures/spin.txt")
+  attach_file("File #3", "spec/fixtures/gradient.txt")
   click_button "Create Ticket"
 end
 
@@ -67,5 +69,5 @@ Then /^I should see title "(.+)"$/ do |ticket_title|
 end
 
 Then /^I should see "(.+)" for the ticket$/ do |file_name|
-  page.should have_selector("#ticket .asset", :content => file_name)
+  page.should have_selector("#ticket .assets", :content => file_name)
 end

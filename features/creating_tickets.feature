@@ -31,6 +31,8 @@ Feature: Creating Tickets
     And I should see "Description is too short"
 
   Scenario: Creating a ticket with an attachment
-    When I add a ticket with "Title" and "Add documentation for blink tag" and I attach "spec/fixtures/speed.txt"
+    When I add a ticket with "Title" and "Add documentation for blink tag" and I attach files
     Then I should see the message "Ticket has been created."
     And I should see "speed.txt" for the ticket
+    And I should see "spin.txt" for the ticket
+    And I should see "gradient.txt" for the ticket

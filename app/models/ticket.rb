@@ -1,7 +1,8 @@
 class Ticket < ActiveRecord::Base
+ 
+  has_many :assets
+  accepts_nested_attributes_for :assets
 
-  has_attached_file :asset
-  
   belongs_to :project
   belongs_to :user
 
