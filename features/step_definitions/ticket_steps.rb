@@ -22,7 +22,9 @@ end
 When /^I add a ticket with "(.+)" and "(.+)" and I attach files$/ do |title, description|
   steps(%Q{When Ticket information "#{title}" and "#{description}" was filled})
   attach_file("File #1", "spec/fixtures/speed.txt")
+  click_link "Add another file"
   attach_file("File #2", "spec/fixtures/spin.txt")
+  click_link "Add another file"
   attach_file("File #3", "spec/fixtures/gradient.txt")
   click_button "Create Ticket"
 end
@@ -48,6 +50,10 @@ end
 
 When /^I delete the ticket$/ do
   click_link "Delete Ticket"
+end
+
+When /^I go to "(.+)" file$/ do |file_name|
+  click_link file_name
 end
 
 #Expectations
