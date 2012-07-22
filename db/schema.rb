@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20120711022407) do
     t.string   "asset_content_type"
     t.datetime "asset_updated_at"
     t.integer  "ticket_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "permissions", :force => true do |t|
@@ -28,22 +28,22 @@ ActiveRecord::Schema.define(:version => 20120711022407) do
     t.integer  "thing_id"
     t.string   "thing_type"
     t.string   "action"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "projects", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "tickets", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
   end
 
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(:version => 20120711022407) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
     t.string   "confirmation_token"
     t.datetime "confirmation_sent_at"
     t.datetime "confirmed_at"
