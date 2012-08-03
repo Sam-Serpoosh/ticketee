@@ -28,7 +28,7 @@ Feature: Viewing tickest
     Then I should see description "Gradients! Starbursts! Oh my!"
     And I should see title "Make it shiny"
 
-    When I go to "Ticketee" page
+    When I go to "Ticketee" main page
     And I go to "Internet Explorer" page
     Then I should see ticket "Standard compliance"
     And I should not see ticket "Makt it shiny"

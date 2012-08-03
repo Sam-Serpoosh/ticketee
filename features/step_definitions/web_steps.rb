@@ -10,6 +10,10 @@ When /^I check the "(.+)"$/ do |check_box|
   check check_box
 end
 
+When /^I go to "(.+)" main page$/ do |page_link |
+  click_link page_link
+end
+
 #Expectations
 
 Then /^I should see the message "(.+)"$/ do |message|

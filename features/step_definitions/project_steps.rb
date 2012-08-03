@@ -7,7 +7,9 @@ end
 #Actions
 
 When /^I go to "(.+)" page$/ do |project_link|
-  click_link project_link
+  within "#projects" do
+    click_link project_link
+  end
 end
 
 When /^I create a project called "(.+)"$/ do |project_name|
