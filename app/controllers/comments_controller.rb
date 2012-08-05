@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment has been created."
       redirect_to project_ticket_path(@ticket.project, @ticket)
     else
+      @states = State.all
       flash[:error] = "Comment has not been created."
       render :template => "tickets/show"
     end

@@ -6,4 +6,8 @@ Feature: Seed Data
   Scenario: The basics
     Given I have run the seed task
     And I am signed in as "admin@ticketee.com"
-    Then I should see "Ticketee Beta"
+    When I want to add ticket to "Ticketee Beta" project
+    And I add the ticket "Comments with state" with description "have state"
+    Then I should see state "New"
+    And I should see state "Open"
+    And I should see state "Closed"

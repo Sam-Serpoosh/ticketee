@@ -12,6 +12,7 @@ Feature: Creating comments on tickets
       | Change a ticket's state | You should be able to create a comment |
     Given I am on the homepage
     And I go to "Ticketee" page
+    And there is a state called "Open"
 
   Scenario: Creating a comment
     When I go to "Change a ticket's state" ticket
@@ -24,3 +25,9 @@ Feature: Creating comments on tickets
     And I add "" comment
     Then I should see the message "Comment has not been created."
     And I should see "Text can't be blank"
+
+  Scenario: Changing ticket's state
+    When I go to "Change a ticket's state" ticket
+    And I add "This is a real issue" comment with "Open" state
+    Then I should see the message "Comment has been created."
+    And I should see "Open" state for ticket
