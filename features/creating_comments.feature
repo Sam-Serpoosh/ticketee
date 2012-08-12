@@ -31,3 +31,4 @@ Feature: Creating comments on tickets
     And I add "This is a real issue" comment with "Open" state
     Then I should see the message "Comment has been created."
     And I should see "Open" state for ticket
+    And I should see "Open" for the comment
