@@ -1,7 +1,3 @@
-Given /^there is a state called "(.+)"$/ do |state|
-  State.create!(:name => state)
-end
-
 #Actions
 When /^I add "(.*)" comment$/ do |comment|
   fill_in "Text", :with => comment

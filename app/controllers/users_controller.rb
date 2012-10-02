@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  def confirmation
-
-  end
+  def confirmation; end
 
 end
