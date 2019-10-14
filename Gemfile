@@ -30,4 +30,4 @@ gem 'therubyracer'
 
 gem 'cancan', '1.6.8'
 
-gem 'paperclip', '3.1.2'
+gem 'paperclip', '4.3.7'
